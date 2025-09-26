@@ -12,7 +12,7 @@
   },
   "validators": [
     {
-      "title": "always_true.placeholder.spend",
+      "title": "always_true.always_true.spend",
       "datum": {
         "title": "_datum",
         "schema": {
@@ -29,18 +29,77 @@
       "hash": "d27ccc13fab5b782984a3d1f99353197ca1a81be069941ffc003ee75"
     },
     {
-      "title": "always_true.placeholder.else",
+      "title": "always_true.always_true.else",
       "redeemer": {
         "schema": {}
       },
       "compiledCode": "585c01010029800aba2aba1aab9eaab9dab9a4888896600264653001300600198031803800cc0180092225980099b8748008c01cdd500144c8cc892898050009805180580098041baa0028b200c180300098019baa0068a4d13656400401",
       "hash": "d27ccc13fab5b782984a3d1f99353197ca1a81be069941ffc003ee75"
+    },
+    {
+      "title": "vesting.vesting.spend",
+      "datum": {
+        "title": "datum_opt",
+        "schema": {
+          "$ref": "#/definitions/vesting~1VestingDatum"
+        }
+      },
+      "redeemer": {
+        "title": "_redeemer",
+        "schema": {
+          "$ref": "#/definitions/Data"
+        }
+      },
+      "compiledCode": "59016601010029800aba2aba1aab9faab9eaab9dab9a48888896600264653001300700198039804000cdc3a400530070024888966002600460106ea800e2646644b30013370e900018059baa0018cc004c038c030dd5000c8c03cc0400064601e602060206020602060206020602060200032232330010010032259800800c528456600266e3cdd71809000801c528c4cc008008c04c00500e20224888966002660026eb0c008c040dd50041bae30033010375400914a3159800998009bac3002301037540106eb8c048c04cc04cc040dd500244c8cc8966002601860246ea800a264b3001300d30133754600e60286ea8c058c050dd500244cdc4001000c4cdc4801000a024375a602a60266ea800a2941011180998089baa3013301137540026eb4c04cc044dd50029809180998099809980998099809980998081baa0088a504038807116402860180026018601a00260126ea800e2c8038600e00260066ea801e29344d9590011",
+      "hash": "76de1a977ca354107dacca17bfaf34e043479c00ee3ec4e1367b1ac1"
+    },
+    {
+      "title": "vesting.vesting.else",
+      "redeemer": {
+        "schema": {}
+      },
+      "compiledCode": "59016601010029800aba2aba1aab9faab9eaab9dab9a48888896600264653001300700198039804000cdc3a400530070024888966002600460106ea800e2646644b30013370e900018059baa0018cc004c038c030dd5000c8c03cc0400064601e602060206020602060206020602060200032232330010010032259800800c528456600266e3cdd71809000801c528c4cc008008c04c00500e20224888966002660026eb0c008c040dd50041bae30033010375400914a3159800998009bac3002301037540106eb8c048c04cc04cc040dd500244c8cc8966002601860246ea800a264b3001300d30133754600e60286ea8c058c050dd500244cdc4001000c4cdc4801000a024375a602a60266ea800a2941011180998089baa3013301137540026eb4c04cc044dd50029809180998099809980998099809980998081baa0088a504038807116402860180026018601a00260126ea800e2c8038600e00260066ea801e29344d9590011",
+      "hash": "76de1a977ca354107dacca17bfaf34e043479c00ee3ec4e1367b1ac1"
     }
   ],
   "definitions": {
     "Data": {
       "title": "Data",
       "description": "Any Plutus data."
+    },
+    "Int": {
+      "dataType": "integer"
+    },
+    "aiken/crypto/VerificationKeyHash": {
+      "title": "VerificationKeyHash",
+      "dataType": "bytes"
+    },
+    "vesting/VestingDatum": {
+      "title": "VestingDatum",
+      "anyOf": [
+        {
+          "title": "VestingDatum",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "lock_until",
+              "description": "POSIX time in milliseconds, e.g. 1672843961000",
+              "$ref": "#/definitions/Int"
+            },
+            {
+              "title": "owner",
+              "description": "Owner's credentials",
+              "$ref": "#/definitions/aiken~1crypto~1VerificationKeyHash"
+            },
+            {
+              "title": "beneficiary",
+              "description": "Beneficiary's credentials",
+              "$ref": "#/definitions/aiken~1crypto~1VerificationKeyHash"
+            }
+          ]
+        }
+      ]
     }
   }
 }
