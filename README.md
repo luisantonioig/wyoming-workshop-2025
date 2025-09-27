@@ -30,7 +30,7 @@ By the end of this workshop, students will gain a foundational understanding of 
 
 ## Setup
 
-1. Create a file called `.env.local` in `spending-app` folder.
+1. Create a file called `.env.local` in `spending-app` folder and write `NEXT_PUBLIC_BLOCKFROST_API_KEY=<YOUR_BLOCKFROST_API_KEY>`.
 2. Install the dependencies with `npm install`.
 3. Run the server with `npm run dev`
 4. Now you can go to http://localhost:3000
