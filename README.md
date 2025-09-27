@@ -35,6 +35,11 @@ By the end of this workshop, students will gain a foundational understanding of 
 3. Run the server with `npm run dev`
 4. Now you can go to http://localhost:3000
 
+## Exercises
+
+Go to [AlwaysTrue example](https://github.com/luisantonioig/wyoming-workshop-2025/blob/main/on-chain/AlwaysTrue.md)
+Go to [Vesting example](https://github.com/luisantonioig/wyoming-workshop-2025/blob/main/on-chain/Vesting.md)
+
 ## Resources
 
 -   [Aiken Official Website](https://aiken-lang.org/)
